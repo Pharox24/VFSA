@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>خدمات VFSA (AR)</title>
+    <meta name="description" content="اكتشف خدمات التوظيف الشاملة لدى VFSA لفرص العمل العالمية">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="Statics/Assets/Images/VfsaTextLogo.png">
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <style>
+        .ltr-direction {
+            direction: ltr;
+            unicode-bidi: bidi-override;
+        }
+        .slideAni {
+            animation: slideIn 1s ease-out;
+        }
+        .fadeIn {
+            animation: fadeIn 1.5s ease-in;
+        }
+        .hover-scale {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hover-scale:hover {
+            transform: scale(1.02);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-family: "Montserrat", sans-serif;
+        }
+        p, li {
+            font-family: "Times New Roman", serif;
+        }
+        .service-card, .destination-card, .message-card {
+            transition: background-color 0.3s ease;
+        }
+        .service-card:hover, .message-card:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+        .destination-card:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        @keyframes slideIn {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col">
+<!-- Navbar -->
+<nav class="bg-red-700 text-white fixed w-full z-20 shadow-lg">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+
+
+        <!-- Hamburger Menu (Mobile) -->
+        <div class="sm:hidden">
+            <button id="menu-toggle" class="text-white focus:outline-none" aria-label="Toggle menu">
+                <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Navbar Links -->
+        <div id="menu" class="hidden sm:flex items-center space-x-6 text-lg font-semibold">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeUtLuHs7TYlP4DInpZSXgM03FB9VluhB4VXWKo6Mi4sw1UMg/viewform?usp=sf_link" target="_blank" class="px-4 py-2 bg-white text-red-700 rounded-lg hover:bg-gray-200 transition-colors duration-300">قدِّم الآن</a>
+            <a href="services(Ar).html" class="px-4 py-2 rounded-lg hover:bg-red-800 transition-colors duration-300">خدماتنا</a>
+            <a href="about(Ar).html" class="px-4 py-2 rounded-lg hover:bg-red-800 transition-colors duration-300">من نحن</a>
+            <a href="home(Ar).html" class="px-4 py-2 rounded-lg hover:bg-red-800 transition-colors duration-300">الرئيسية</a>
+            <a href="https://www.shuaamisr.com" target="_blank" class="px-4 py-2 rounded-lg hover:bg-red-800 transition-colors duration-300">مجموعة SMIFID</a>
+        </div>
+
+        <!-- Logo Section -->
+        <div class="flex items-center">
+            <div class="flex items-center ml-6 gap-x-2">
+                <a href="services(Ar).html
+                " class="px-3 py-2 rounded-lg hover:bg-red-800 transition-colors duration-300">AR</a>
+                <a href="services(En).html" class="px-3 py-2 rounded-lg hover:bg-red-800 transition-colors duration-300">EN</a>
+            </div>
+
+            <img src="Statics/Assets/Images/VfsaTextLogo.png" alt="VFSA Logo" class="h-14 w-auto hover-scale" />
+        </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden sm:hidden bg-red-800">
+        <div class="flex flex-col space-y-2 p-4">
+            <a href="https://www.shuaamisr.com" target="_blank" class="px-4 py-2 hover:bg-red-900 rounded-lg transition-colors duration-300">مجموعة SMIFID</a>
+            <a href="home(Ar).html" class="px-4 py-2 hover:bg-red-900 rounded-lg transition-colors duration-300">الرئيسية</a>
+            <a href="about(Ar).html" class="px-4 py-2 hover:bg-red-900 rounded-lg transition-colors duration-300">من نحن</a>
+            <a href="services(Ar).html" class="px-4 py-2 hover:bg-red-900 rounded-lg transition-colors duration-300">خدماتنا</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeUtLuHs7TYlP4DInpZSXgM03FB9VluhB4VXWKo6Mi4sw1UMg/viewform?usp=sf_link" target="_blank" class="px-4 py-2 bg-white text-red-700 rounded-lg hover:bg-gray-200 transition-colors duration-300">قدِّم الآن</a>
+        </div>
+    </div>
+</nav>
+
+<script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+
+    </script>
+    
+    <!-- Our Services Section -->
+    <div class="relative bg-black w-full py-16 px-4 sm:px-6 lg:px-8 text-white">
+        <img class="absolute inset-0 h-full w-full object-cover opacity-30" src="Statics/Assets/Images/TeamworkGroup.jpg" alt="مجموعة متنوعة من الأشخاص يمسكون بأيدي بعض في اجتماع">
+        
+        <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+        <div class="relative container mx-auto">
+            <div class="max-w-4xl mx-auto p-6 bg-opacity-70 rounded-lg service-card fadeIn">
+                <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 slideAni">خدماتنا</h1>
+                <ul class="space-y-4 text-lg sm:text-xl lg:text-2xl leading-relaxed">
+                    <li class="flex items-start">
+                        <span class="ml-3 text-red-500">•</span>
+                        <span><strong>معالجة الطلبات:</strong> نقبل ونراجع طلبات التوظيف من المرشحين الباحثين عن فرص عمل دولية، ونقيم المؤهلات والأهداف المهنية لمطابقتها مع الوظائف المناسبة.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="ml-3 text-red-500">•</span>
+                        <span><strong>التدريب والتأهيل:</strong> نوجه المرشحين إلى مؤسسات التدريب المعتمدة لتطوير المهارات المناسبة لأسواق العمل العالمية، مثل الرعاية الصحية والهندسة والضيافة، لضمان الجاهزية للوظائف المحددة.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="ml-3 text-red-500">•</span>
+                        <span><strong>شراكات التدريب:</strong> نرتب عقودًا مع منظمات التدريب لتقديم دورات متخصصة، وتزويد المرشحين بالشهادات والخبرة المطلوبة من قبل أصحاب العمل الدوليين.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="ml-3 text-red-500">•</span>
+                        <span><strong>إدارة عقود العمل:</strong> نتفاوض ونضمن عقود العمل مع أصحاب العمل العالميين، مع ضمان شروط واضحة وتوافق مع مهارات المرشحين عبر صناعات مثل تكنولوجيا المعلومات والبناء.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="ml-3 text-red-500">•</span>
+                        <span><strong>تنسيق التأشيرات والمقابلات:</strong> نسهل التواصل بين العمال وأصحاب العمل، ونحدد مواعيد المقابلات في السفارات ونساعد في توثيق التأشيرات لتبسيط عملية الانتقال.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="ml-3 text-red-500">•</span>
+                        <span><strong>الدعم بعد التوظيف:</strong> لمدة ثلاثة أشهر بعد الانتقال، نتابع ملاءمة الوظيفة للعامل ومصداقية صاحب العمل، ونقدم الدعم لضمان انتقال ناجح.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="ml-3 text-red-500">•</span>
+                        <span><strong>الإرشاد الوظيفي:</strong> يقدم خبراؤنا توجيهًا شخصيًا، بما في ذلك تحسين السيرة الذاتية والتحضير للمقابلات، لمساعدة المرشحين على تحقيق طموحاتهم المهنية الدولية.</span>
+                    </li>
+                </ul>
+                <div class="text-center mt-8">
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeUtLuHs7TYlP4DInpZSXgM03FB9VluhB4VXWKo6Mi4sw1UMg/viewform?usp=sf_link" class="inline-block px-6 py-3 bg-red-600 text-white rounded hover:bg-red-700 transition-colors duration-300 text-lg">قدم على وظيفة</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Work & Fields View Section -->
+    <div class="bg-black w-full py-16 px-4 sm:px-6 lg:px-8 text-white">
+        <div class="container mx-auto">
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white text-center mb-12 slideAni">فرص حول العالم</h1>
+            <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                <!-- Work Destinations Card -->
+                <div class="p-6 border-2 border-white rounded-2xl destination-card hover-scale fadeIn">
+                    <div class="flex items-center space-x-4 mb-4">
+                        <img src="Statics/Assets/SVGs/earth.svg" class="h-16 w-16" alt="أيقونة الأرض">
+                        <h2 class="text-2xl font-semibold text-white">وجهات العمل</h2>
+                    </div>
+                    <ul class="text-lg sm:text-xl space-y-2">
+                        <li class="flex items-center"><span class="ml-2">🇷🇴</span> رومانيا: فرص في البناء والتصنيع.</li>
+                        <li class="flex items-center"><span class="ml-2">🇬🇷</span> اليونان: وظائف في السياحة والزراعة.</li>
+                        <li class="flex items-center"><span class="ml-2">🇭🇺</span> المجر: طلب في الخدمات اللوجستية وتكنولوجيا المعلومات.</li>
+                        <li class="flex items-center"><span class="ml-2">🇵🇱</span> بولندا: حرف مهرة وعمل في المصانع.</li>
+                        <li class="flex items-center"><span class="ml-2">🇮🇹</span> إيطاليا: وظائف في الضيافة والرعاية الصحية.</li>
+                        <li class="flex items-center"><span class="ml-2">🇫🇷</span> فرنسا: هندسة ووظائف خدمية.</li>
+                        <li class="flex items-center"><span class="ml-2">🇪🇸</span> إسبانيا: زراعة وبناء.</li>
+                        <li class="flex items-center"><span class="ml-2">🇩🇪</span> ألمانيا: تكنولوجيا ورعاية صحية.</li>
+                        <li class="flex items-center"><span class="ml-2">🇨🇦</span> كندا: حرف مهرة ووظائف مكتبية.</li>
+                        <li class="flex items-center"><span class="ml-2">🇺🇸</span> الولايات المتحدة: فرص متنوعة.</li>
+                        <li class="flex items-center"><span class="ml-2">🇸🇦</span> السعودية: قطاعات البناء والنفط.</li>
+                        <li class="flex items-center"><span class="ml-2">🌎</span> دول أخرى: توسع في الوصول العالمي.</li>
+                    </ul>
+                </div>
+                <!-- Work Fields Card -->
+                <div class="p-6 border-2 border-white rounded-2xl destination-card hover-scale fadeIn">
+                    <div class="flex items-center space-x-4 mb-4">
+                        <img src="Statics/Assets/SVGs/gear.svg" class="h-16 w-16" alt="أيقونة الترس">
+                        <h2 class="text-2xl font-semibold text-white">مجالات العمل</h2>
+                    </div>
+                    <ul class="text-lg sm:text-xl space-y-2">
+                        <li><strong>عامل بناء:</strong> مشاريع البناء والبنية التحتية.</li>
+                        <li><strong>عامل مصنع:</strong> تصنيع وأدوار إنتاجية.</li>
+                        <li><strong>مهندس حدائق:</strong> صيانة الحدائق والمناطق الخارجية.</li>
+                        <li><strong>عامل نظافة:</strong> تنظيف تجاري وسكني.</li>
+                        <li><strong>عامل زراعي:</strong> زراعة وإنتاج محاصيل.</li>
+                        <li><strong>سائق شاحنة:</strong> لوجستيات ونقل.</li>
+                        <li><strong>نجار:</strong> أعمال خشبية وبناء.</li>
+                        <li><strong>رسام:</strong> دهان سكني وتجاري.</li>
+                        <li><strong>موظف بنك:</strong> خدمات مالية ومصرفية.</li>
+                        <li><strong>موظف مكتب:</strong> أدوار إدارية وكتابية.</li>
+                        <li><strong>ممرض:</strong> خدمات رعاية صحية وطبية.</li>
+                        <li><strong>مجالات أخرى:</strong> فرص متنوعة في مختلف الصناعات.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Global Opportunities Section -->
+    <div class="relative bg-red-500 w-full py-16 px-4 sm:px-6 lg:px-8 text-white">
+        <img class="absolute inset-0 h-full w-full object-cover opacity-40" src="Statics/Assets/Images/CoffeeMeeting.jpg" alt="صورة خلفية لاجتماع">
+        <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+        <div class="relative container mx-auto">
+            <div class="max-w-4xl mx-auto p-6 bg-opacity-70 rounded-lg message-card fadeIn">
+                <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 slideAni">فرص عالمية</h1>
+                <div class="space-y-4 text-lg sm:text-xl lg:text-2xl leading-relaxed">
+                    <p>
+                        تلتزم VFSA بتأمين فرص عمل للعمال المصريين في سوق العمل العالمي، بما في ذلك الدول العربية والاتحاد الأوروبي وأمريكا الشمالية والشرق الأقصى. يعمل فريقنا المتفاني بشكل نشط مع المصانع والمزارع والشركات الدولية لتحديد احتياجاتهم من القوى العاملة، مما يضمن أننا نربط المرشحين بالوظائف التي تتطابق مع مهاراتهم وطموحاتهم.
+                    </p>
+                    <p>
+                        ننشئ عقودًا طويلة الأجل مع أصحاب العمل العالميين الموثوق بهم، من الشركات متعددة الجنسيات إلى الشركات المتخصصة، لتوفير فرص آمنة ومجزية. تضمن شراكاتنا مع السفارات ومنظمات التدريب أن جميع العمليات رسمية وشفافة وخالية من المخاطر، مما يحمي العمال وأصحاب العمل على حد سواء.
+                    </p>
+                    <p>
+                        إلى جانب التوظيف، تدعم VFSA المرشحين بخدمات شاملة، بما في ذلك تطوير المهارات ومساعدة التأشيرات والمتابعة بعد التوظيف. من خلال الاستفادة من شبكتنا الواسعة وخبرتنا، نمكن المهنيين المصريين من تحقيق النجاح الوظيفي مع المساهمة في نمو الشركات حول العالم.
+                    </p>
+                    <p>
+                        مهمتنا هي سد الفجوة بين المواهب والفرص، وتعزيز النمو الاقتصادي لمصر وإنشاء مجتمع عالمي من المحترفين المهرة. انضم إلى VFSA لاكتشاف عالم من الاحتمالات واتخذ الخطوة الأولى نحو مسيرة مهنية تحويلية.
+                    </p>
+                </div>
+                <div class="text-center mt-8">
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeUtLuHs7TYlP4DInpZSXgM03FB9VluhB4VXWKo6Mi4sw1UMg/viewform?usp=sf_link" class="inline-block px-6 py-3 bg-black text-white rounded hover:bg-gray-900 transition-colors duration-300 text-lg">ابدأ رحلتك</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-12 mt-auto">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row gap-12">
+            <div class="md:w-2/3 space-y-8">
+                <h1 class="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent">اتصل بنا</h1>
+                <p class="text-lg max-w-xl">احصل على أحدث التحديثات بمتابعتنا على وسائل التواصل الاجتماعي. إذا كان لديك أي أسئلة، فلا تتردد في الاتصال بنا أو مراسلتنا عبر البريد الإلكتروني.</p>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <address class="space-y-4 not-italic">
+                        <div class="flex flex-col space-y-2">
+                            <a href="mailto:info@vfsa.site" class="hover:text-indigo-500 transition-colors">info@vfsa.site</a>
+                            <a href="https://www.vfsa.site" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-500 transition-colors">www.vfsa.site</a>
+                        </div>
+                        <div class="flex flex-col space-y-2">
+                            <div class="ltr-direction flex items-center gap-2">
+                                <span role="img" aria-label="علم مصر">🇪🇬</span>
+                                <a href="tel:+20554911365" class="hover:text-indigo-500 transition-colors">(+20) 554911365</a>
+                            </div>
+                            <div class="ltr-direction flex items-center gap-2">
+                                <span role="img" aria-label="علم اليونان">🇬🇷</span>
+                                <a href="tel:+306955967553" class="hover:text-indigo-500 transition-colors">(+30) 6955967553</a>
+                            </div>
+                        </div>
+                        <a href="Statics/Assets/Files/VFSA brochure.pdf" class="flex items-center gap-2 hover:text-indigo-500 transition-colors group" download="VFSA-brochure.pdf" target="_blank" rel="noopener noreferrer">
+                            <img src="Statics/Assets/SVGs/download.svg" alt="أيقونة تحميل" class="h-6 w-6 group-hover:animate-bounce">
+                            <span class="group-hover:underline">تحميل البروشور</span>
+                        </a>
+                    </address>
+                </div>
+                <div class="border-t border-gray-800 pt-6">
+                    <div class="flex flex-wrap justify-center gap-4 text-sm">
+                        <a href="TOS(En).html" class="hover:text-indigo-500 transition-colors" target="_blank" rel="noopener noreferrer">شروط الخدمة</a>
+                        <span class="text-gray-600">|</span>
+                        <a href="PrivacyPolicy(En).html" class="hover:text-indigo-500 transition-colors" target="_blank" rel="noopener noreferrer">سياسة الخصوصية</a>
+                        <span class="text-gray-600">|</span>
+                        <span class="text-gray-400">© 2025 VFSA. جميع الحقوق محفوظة</span>
+                    </div>
+                </div>
+            </div>
+            <div class="md:w-1/3">
+                <iframe class="w-full h-64 md:h-96 rounded-xl" src="https://www.google.com/maps/embed?..." title="خريطة موقع VFSA" loading="lazy" aria-label="خريطة الموقع" allowfullscreen></iframe>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

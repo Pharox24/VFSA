@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>عن VFSA (AR)</title>
+    <meta name="description" content="تعرف على VFSA - تمكين المحترفين المصريين بفرص عمل عالمية">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="Statics/Assets/Images/VfsaTextLogo.png">
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <style>
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fadeInUp {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+        .fadeInUp-delay-1 { animation-delay: 0.2s; }
+        .fadeInUp-delay-2 { animation-delay: 0.4s; }
+        .fadeInUp-delay-3 { animation-delay: 0.6s; }
+        .fadeInUp-delay-4 { animation-delay: 0.8s; }
+        .fadeInUp-delay-5 { animation-delay: 1s; }
+        .ltr-direction {
+            direction: ltr;
+            unicode-bidi: bidi-override;
+        }
+        .slideAni {
+            animation: slideIn 1s ease-out;
+        }
+        .fadeIn {
+            animation: fadeIn 1.5s ease-in;
+        }
+        .hover-scale {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hover-scale:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        .about-card {
+            transition: background-color 0.3s ease;
+        }
+        .about-card:hover {
+            background-color: #1f2937;
+        }
+        @keyframes slideIn {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen bg-gray-900 flex flex-col">
+
+
+  <!-- Navbar -->
+<nav class="bg-red-700 text-white fixed w-full z-20 shadow-lg">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+
+
+      <!-- Hamburger Menu (Mobile) -->
+      <div class="sm:hidden">
+          <button id="menu-toggle" class="text-white focus:outline-none" aria-label="Toggle menu">
+              <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+          </button>
+      </div>
+
+      <!-- Navbar Links -->
+      <div id="menu" class="hidden sm:flex items-center space-x-6 text-lg font-semibold">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSeUtLuHs7TYlP4DInpZSXgM03FB9VluhB4VXWKo6Mi4sw1UMg/viewform?usp=sf_link" target="_blank" class="px-4 py-2 bg-white text-red-700 rounded-lg hover:bg-gray-200 transition-colors duration-300">قدِّم الآن</a>
+          <a href="services(Ar).html" class="px-4 py-2 rounded-lg hover:bg-red-800 transition-colors duration-300">خدماتنا</a>
+          <a href="about(Ar).html" class="px-4 py-2 rounded-lg hover:bg-red-800 transition-colors duration-300">من نحن</a>
+          <a href="home(Ar).html" class="px-4 py-2 rounded-lg hover:bg-red-800 transition-colors duration-300">الرئيسية</a>
+          <a href="https://www.shuaamisr.com" target="_blank" class="px-4 py-2 rounded-lg hover:bg-red-800 transition-colors duration-300">مجموعة SMIFID</a>
+      </div>
+
+      <!-- Logo Section -->
+      <div class="flex items-center">
+          <div class="flex items-center ml-6 gap-x-2">
+              <a href="about(Ar).html" class="px-3 py-2 rounded-lg hover:bg-red-800 transition-colors duration-300">AR</a>
+              <a href="about(En).html" class="px-3 py-2 rounded-lg hover:bg-red-800 transition-colors duration-300">EN</a>
+          </div>
+
+          <img src="Statics/Assets/Images/VfsaTextLogo.png" alt="VFSA Logo" class="h-14 w-auto hover-scale" />
+      </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden sm:hidden bg-red-800">
+      <div class="flex flex-col space-y-2 p-4">
+          <a href="https://www.shuaamisr.com" target="_blank" class="px-4 py-2 hover:bg-red-900 rounded-lg transition-colors duration-300">مجموعة SMIFID</a>
+          <a href="home(Ar).html" class="px-4 py-2 hover:bg-red-900 rounded-lg transition-colors duration-300">الرئيسية</a>
+          <a href="about(Ar).html" class="px-4 py-2 hover:bg-red-900 rounded-lg transition-colors duration-300">من نحن</a>
+          <a href="services(Ar).html" class="px-4 py-2 hover:bg-red-900 rounded-lg transition-colors duration-300">خدماتنا</a>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSeUtLuHs7TYlP4DInpZSXgM03FB9VluhB4VXWKo6Mi4sw1UMg/viewform?usp=sf_link" target="_blank" class="px-4 py-2 bg-white text-red-700 rounded-lg hover:bg-gray-200 transition-colors duration-300">قدِّم الآن</a>
+      </div>
+  </div>
+</nav>
+
+<script>
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+  });
+
+</script>
+
+<div class="w-full h-auto bg-gray-900 mt-10">
+  <section class="w-full bg-gray-900 py-16 px-4 sm:px-6 lg:px-8 ">
+    <div class="container mx-auto">
+        <div class="max-w-5xl mx-auto bg-gray-800 rounded-2xl shadow-xl overflow-hidden">
+  
+            <!-- Content Section -->
+            <div class="p-8 space-y-12">
+                <!-- Mission Section -->
+                <div class="flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6 fadeInUp">
+                    <div class="flex-shrink-0">
+                        <svg class="w-12 h-12 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c-2.209 0-4 1.791-4 4m4 4c2.209 0 4-1.791 4-4"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-semibold text-red-400 mb-2">مهمتنا</h2>
+                        <p class="text-lg text-gray-300 leading-relaxed">
+                            VFSA هي وكالة توظيف ديناميكية مكرسة لربط القوى العاملة المصرية الماهرة بمتطلبات سوق العمل العالمي في قطاعات مثل الرعاية الصحية والهندسة وتكنولوجيا المعلومات والضيافة. نحن نعد العمال ونوظفهم بمسؤولية من خلال تقييمات شاملة، مما يضمن استعدادهم للتحديات الدولية.
+                        </p>
+                    </div>
+                </div>
+  
+                <!-- Expertise Section -->
+                <div class="flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6 fadeInUp fadeInUp-delay-1">
+                    <div class="flex-shrink-0">
+                        <svg class="w-12 h-12 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-semibold text-red-400 mb-2">الخبرة العالمية</h2>
+                        <p class="text-lg text-gray-300 leading-relaxed">
+                            تأسست VFSA من قبل فريق يتمتع بخبرة دولية واسعة، ونحن نتفهم التحديات التي يواجهها العمال المهاجرون وأصحاب العمل العالميون. تضمن عملية الاختيار الدقيقة وبرامج التدريب الشاملة أن المرشحين يستوفون المعايير الدولية، مع دعم شامل من معالجة التأشيرات إلى التوجيه قبل المغادرة.
+                        </p>
+                    </div>
+                </div>
+  
+                <!-- Empowerment Section -->
+                <div class="flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6 fadeInUp fadeInUp-delay-2">
+                    <div class="flex-shrink-0">
+                        <svg class="w-12 h-12 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a2 2 0 00-2-2h-3m-2 4H2v2a2 2 0 002 2h11m2-4V8a2 2 0 00-2-2H5a2 2 0 00-2 2v12m4-12v4m4-4v4m4-4v4"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-semibold text-red-400 mb-2">تمكين المحترفين</h2>
+                        <p class="text-lg text-gray-300 leading-relaxed">
+                            إلى جانب التوظيف، نحن نمكن المحترفين المصريين من خلال تقديم المشورة المهنية المخصصة وورش عمل لتحسين المهارات والدعم المستمر. هذا النهج الشامل يبني الثقة والقدرة على التكيف، مما يمكن المرشحين من الازدهار في بيئات مهنية وثقافية متنوعة.
+                        </p>
+                    </div>
+                </div>
+  
+                <!-- Values Section -->
+                <div class="flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6 fadeInUp fadeInUp-delay-3">
+                    <div class="flex-shrink-0">
+                        <svg class="w-12 h-12 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-semibold text-red-400 mb-2">القيم الأساسية</h2>
+                        <p class="text-lg text-gray-300 leading-relaxed">
+                            مسترشدين بالثقة والشفافية والتميز، تحافظ VFSA على اتصال مفتوح لضمان عملية توظيف أخلاقية وفعالة. يعكس سجلنا الحافل التزامنا بخلق تأثير دائم لكل من العمال وأصحاب العمل.
+                        </p>
+                    </div>
+                </div>
+  
+                <!-- Vision Section -->
+                <div class="flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6 fadeInUp fadeInUp-delay-4">
+                    <div class="flex-shrink-0">
+                        <svg class="w-12 h-12 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-semibold text-red-400 mb-2">رؤيتنا</h2>
+                        <p class="text-lg text-gray-300 leading-relaxed">
+                            مع نمو VFSA، نركز على الابتكار، والاستفادة من التكنولوجيا والشراكات العالمية لتوسيع الفرص للعمال المصريين. سواء كنت محترفًا تبحث عن تحول مهني أو صاحب عمل يبحث عن مواهب من الطراز الأول، فإن VFSA هي شريكك الموثوق به.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+  
+</div>
+
+    <!-- Book An Appointment Section -->
+    <div class="bg-gradient-to-b from-gray-100 to-white w-full py-20 px-4 sm:px-6 lg:px-8">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 slideAni">احجز موعدًا</h1>
+                    <p class="text-lg sm:text-xl lg:text-2xl text-gray-700 leading-relaxed">
+                        ابدأ رحلتك مع VFSA عن طريق جدولة استشارة أولية. ما عليك سوى ملء النموذج عبر الإنترنت ببياناتك المهنية وتطلعاتك الوظيفية، وسيقوم فريقنا بترتيب مقابلة شخصية لمناقشة أهدافك. تتيح لنا هذه الخطوة الأولى تقييم مؤهلاتك ومطابقتك مع فرص العمل الدولية المناسبة.
+                    </p>
+                    <p class="text-lg sm:text-xl lg:text-2xl text-gray-700 leading-relaxed">
+                        تم تصميم عملية الموعد لدينا لتكون مباشرة وداعمة. بعد المقابلة، نرشدك خلال إجراءات التأهيل، بما في ذلك تحسين السيرة الذاتية وتقييمات المهارات والتحضير لمقابلات أصحاب العمل. مع خبرة VFSA، ستكون مجهزًا جيدًا لتأمين دور يتوافق مع مهاراتك وطموحاتك، مما يضع الأساس لحياة مهنية ناجحة في الخارج.
+                    </p>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeUtLuHs7TYlP4DInpZSXgM03FB9VluhB4VXWKo6Mi4sw1UMg/viewform?usp=sf_link" target="_blank" class="inline-block px-8 py-4 bg-red-700 text-white rounded-lg hover:bg-red-800 transition-colors duration-300 font-semibold text-lg">جدولة موعدك</a>
+                </div>
+                <div class="flex justify-center">
+                    <img class="w-64 h-64 hover-scale" src="Statics/Assets/SVGs/calendar_Icon.svg" alt="أيقونة التقويم">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 mt-auto">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row gap-12">
+            <!-- Content Section -->
+            <div class="md:w-2/3 space-y-8">
+                <h1 class="text-4xl font-bold bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent">اتصل بنا</h1>
+                <p class="text-lg max-w-xl">ابق على اتصال مع VFSA للحصول على آخر التحديثات والفرص. تواصل معنا عبر الهاتف أو البريد الإلكتروني أو وسائل التواصل الاجتماعي لأي استفسارات.</p>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <address class="space-y-4 not-italic">
+                        <div class="flex flex-col space-y-2">
+                            <a href="mailto:info@vfsa.site" class="hover:text-indigo-400 transition-colors">info@vfsa.site</a>
+                            <a href="https://www.vfsa.site" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-400 transition-colors">www.vfsa.site</a>
+                        </div>
+                        <div class="flex flex-col space-y-2">
+                            <div class="ltr-direction flex items-center gap-2">
+                                <span role="img" aria-label="علم مصر">🇪🇬</span>
+                                <a href="tel:+20554911365" class="hover:text-indigo-400 transition-colors">(+20) 554911365</a>
+                            </div>
+                            <div class="ltr-direction flex items-center gap-2">
+                                <span role="img" aria-label="علم اليونان">🇬🇷</span>
+                                <a href="tel:+306955967553" class="hover:text-indigo-400 transition-colors">(+30) 6955967553</a>
+                            </div>
+                        </div>
+                        <a href="Statics/Assets/Files/VFSA brochure.pdf" class="flex items-center gap-2 hover:text-indigo-400 transition-colors group" download="VFSA-brochure.pdf" target="_blank" rel="noopener noreferrer">
+                            <img src="Statics/Assets/SVGs/download.svg" alt="أيقونة التحميل" class="h-6 w-6 group-hover:animate-bounce">
+                            <span class="group-hover:underline">تحميل البروشور</span>
+                        </a>
+                    </address>
+                </div>
+                <div class="border-t border-gray-700 pt-6">
+                    <div class="flex flex-wrap justify-center gap-4 text-sm">
+                        <a href="TOS(En).html" class="hover:text-indigo-400 transition-colors" target="_blank" rel="noopener noreferrer">شروط الخدمة</a>
+                        <span class="text-gray-600">|</span>
+                        <a href="PrivacyPolicy(En).html" class="hover:text-indigo-400 transition-colors" target="_blank" rel="noopener noreferrer">سياسة الخصوصية</a>
+                        <span class="text-gray-600">|</span>
+                        <span class="text-gray-500">© 2025 VFSA. جميع الحقوق محفوظة</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Map Section -->
+            <div class="md:w-1/3">
+                <iframe class="w-full h-64 md:h-96 rounded-xl shadow-lg" src="https://www.google.com/maps/embed?..." title="خريطة موقع VFSA" loading="lazy" aria-label="خريطة الموقع" allowfullscreen></iframe>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
